@@ -1,78 +1,40 @@
-# Simulador de Conta Bancária
+# 🏦 Simulador de Sistema Bancário em Java
 
-Este projeto é uma aplicação em Java que simula uma conta bancária simples, utilizando entrada de dados via terminal. O usuário pode criar sua conta, visualizar o saldo, fazer depósitos e saques.
+Aplicação desenvolvida em Java 21 para simulação de operações bancárias, desenhada com foco em **Programação Orientada a Objetos (POO)**, **Clean Architecture** e **Desacoplamento de Camadas**.
 
-Atualização: O projeto recebeu um "update" e agora está Orientado a Objetos. Temos a classe Cliente, Conta, ContaCorrente e ContaPoupanca e com metodos para validar o tipo de conta, para sacar e depositar.
+---
 
-## Objetivo
+## 🎯 Objetivo do Projeto
 
-O projeto foi desenvolvido com foco em praticar:
+Demostrar a aplicação prática de padrões de arquitetura de software e boas práticas de desenvolvimento em Java, tais como:
 
-- Leitura de dados com `Scanner`
-- Uso de estruturas de repetição e condicionais (`do/while`, `switch`)
-- Validação de entrada de dados
-- Formatação de saída no console
-- Lógica de fluxo de um sistema bancário básico
-- Orientação a Objetos e seus princípios como **encapsulamento**, **herança** e **polimorfismo**.
+- **Clean Architecture & Separação de Responsabilidades:** Separação clara entre domínio, casos de uso e infraestrutura.
+- **Padrões de Projeto (Repository Pattern):** Utilização de interface (`ITransacaoRepository`) para isolar a persistência de dados das regras de negócio.
+- **Princípios de POO:** Encapsulamento, Herança e Polimorfismo na modelagem de diferentes tipos de conta (`ContaCorrente` e `ContaPoupanca`).
+- **Testabilidade & Desacoplamento:** Implementação de repositório em memória (`TransacaoRepositoryInMemory`), permitindo a evolução futura para bases de dados relacionais (ex: PostgreSQL/MySQL) sem impactar as regras de negócio.
 
-## Funcionalidades
+---
 
-- Criar conta bancária (Corrente ou Poupança)
-- Definir saldo inicial com validação
-- Consultar saldo
-- Realizar depósitos (com validação de valor)
-- Realizar saques (com verificação de saldo)
-- Sair da aplicação
+## 🏗️ Estrutura e Arquitetura do Projeto
 
-## Exemplo de uso
+O projeto foi organizado segundo os princípios de camadas legíveis e mantCursor:
 
 ```text
-Digite seu nome: 
-João
-Digite o seu tipo de conta (Corrente/Poupanca)
-Corrente
-Digite o valor do deposito inicial: 
-1000
-
-___________________________
-Dados iniciais do cliente:
-
-Nome:           João
-Tipo de conta:  Corrente
-Saldo inicial:  R$ 1000.00
-___________________________
-
-___________________________
-Operaçoes disponiveis:
-
-1- Consultar saldo
-2- Depositar
-3- Sacar
-4- Sair
-
-Digite a opção desejada:
-```
-
-## Estrutura do projeto
-```
 src
 └── main.com.contabancaria
-    ├── application
+    ├── application          # Ponto de entrada da aplicação e interface CLI
     │   ├── Aplicacao.java
     │   └── Main2.java
-    │
-    ├── entities
+    ├── entities             # Domínio: Entidades principais e interfaces de contrato
     │   ├── Cliente.java
     │   ├── Conta.java
     │   ├── ContaCorrente.java
     │   ├── ContaPoupanca.java
     │   ├── Transacao.java
     │   └── ITransacaoRepository.java
-    │
-    ├── usecases
+    ├── usecases             # Regras de negócio e orquestração de transações
     │   └── TransacaoService.java
-    │
-    └── infrastructure
+    └── infrastructure       # Implementação técnica de dados (In-Memory)
         └── TransacaoRepositoryInMemory.java
 ```
 
@@ -80,7 +42,7 @@ src
 
 - Java 21
 - IntelliJ IDEA
-- POO (Programação Orientada a Objetos) - utilizando os princípios de POO, como **encapsulamento**, **herança** e **polimorfismo**.
+- Conceitos: Clean Architecture, POO, Injeção de Dependências/Interfaces, Repository Pattern.
 
 
 Feito com 💻 e ☕ por Gustavo Alves
